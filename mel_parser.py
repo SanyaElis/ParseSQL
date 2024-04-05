@@ -14,7 +14,7 @@ parser = Lark('''
     %ignore COMMENT
 
     num: NUMBER
-    ident: CNAME | STRING
+    ident: CNAME | STRING | ALL
     STRING: /'[^']*'/
     
     ADD:     "+"
@@ -31,9 +31,13 @@ parser = Lark('''
     EQ:      "="
     GT:      ">"
     LT:      "<"
+    ALL:     "*"
+    
+    call: ident "(" ( expr ( "," expr )* )? ")"
 
     ?group: num
         | ident
+        | call
         | "(" add ")"
 
     ?mult: group

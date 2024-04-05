@@ -114,6 +114,21 @@ class ExprListNode(AstNode):
         return '...'
 
 
+class CallNode(AstNode):
+    def __init__(self, func: IdentNode, *params: Tuple[ExprNode],
+                 row: Optional[int] = None, line: Optional[int] = None, **props):
+        self.func = func
+        self.params = params
+
+    @property
+    def childs(self) -> Tuple[IdentNode, ...]:
+        # return self.func, (*self.params)
+        return (self.func,) + self.params
+
+    def __str__(self) -> str:
+        return 'func'
+
+
 class WhereClauseNode(AstNode):
     def __init__(self, *exprs: ExprNode):
         super().__init__()
