@@ -84,7 +84,7 @@ parser = Lark('''
         | empty_expr_list
         
     ?having: "having"i expr -> having_clause
-        | empty_expr
+        | empty_expr_list
         
     ?order_by: "order"i "by"i expr_list -> order_clause
         | empty_expr_list
