@@ -128,6 +128,5 @@ class MelASTBuilder(Transformer):
 
 def parse(prog: str) -> ExprNode:
     prog = parser.parse(str(prog))
-    print(prog.pretty())
     prog = MelASTBuilder().transform(prog)
     return prog

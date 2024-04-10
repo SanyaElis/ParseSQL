@@ -19,7 +19,7 @@ def main():
     #       FROM table1
     #         WHERE a + 5 * b > r AND r = 8
     # ''')
-    prog1 = mel_parser.parse(sql_query4)
+    prog1 = mel_parser.parse(sql_query1)
     tree = prog1.tree
     print(*prog1.tree, sep='\n')
 
